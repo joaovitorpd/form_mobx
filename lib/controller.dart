@@ -1,25 +1,32 @@
+import 'package:counter_mobx/models/client.dart';
 import 'package:mobx/mobx.dart';
 part 'controller.g.dart'; //allways the name_of_this_file.g
 
 class Controller = ControllerBase with _$Controller;
 
 abstract class ControllerBase with Store {
-  @observable
-  String name = '';
-
-  @observable
-  String lastName = '';
+  final client = Client();
 
   @computed
-  String get fullName => '$name $lastName';
-
-  @action
-  updateName(String newName) {
-    name = newName;
+  bool get isValid {
+    return validateName() == null && validateEmail() == null;
   }
 
-  @action
-  updateLastName(String newLastName) {
-    lastName = newLastName;
+  String? validateName() {
+    if (client.name == null || client.name!.isEmpty) {
+      return "este campo é obrigatório";
+    } else if (client.name!.length < 3) {
+      return "seu nome precisa ter mais de 3 caracteres";
+    }
+    return null;
+  }
+
+  String? validateEmail() {
+    if (client.email == null || client.email!.isEmpty) {
+      return "este campo é obrigatório";
+    } else if (!client.email!.contains('@')) {
+      return "esse não é um email válido";
+    }
+    return null;
   }
 }

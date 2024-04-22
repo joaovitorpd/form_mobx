@@ -7,37 +7,52 @@ class MyHomePage extends StatelessWidget {
 
   final controller = Controller();
 
+  _textField({String? labelText, onChanged, String? Function()? errorText}) {
+    return TextField(
+      onChanged: onChanged,
+      decoration: InputDecoration(
+        border: const OutlineInputBorder(),
+        labelText: labelText,
+        errorText: errorText == null ? null : errorText(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("MobX"),
+        title: const Text("Formulário MobX"),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            TextField(
-              decoration: const InputDecoration(labelText: 'Nome'),
-              onChanged: controller.updateName,
-            ),
-            const SizedBox(height: 20),
-            TextField(
-              decoration: const InputDecoration(labelText: 'Sobrenome'),
-              onChanged: controller.updateLastName,
-            ),
+            Observer(builder: (_) {
+              return _textField(
+                errorText: controller.validateName,
+                labelText: 'name',
+                onChanged: controller.client.changeName,
+              );
+            }),
             const SizedBox(height: 20),
             Observer(builder: (_) {
-              return Text(controller.fullName);
+              return _textField(
+                errorText: controller.validateEmail,
+                labelText: 'email',
+                onChanged: controller.client.changeEmail,
+              );
             }),
+            const SizedBox(height: 50),
+            Observer(builder: (_) {
+              return ElevatedButton(
+                onPressed: controller.isValid ? () {} : null,
+                child: const Text('Salvar'),
+              );
+            })
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
