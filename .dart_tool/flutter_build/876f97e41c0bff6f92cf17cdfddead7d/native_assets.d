@@ -1,0 +1,1 @@
+ /Users/joaovitorpiresdias/Projetos/counter_mobx/.dart_tool/flutter_build/876f97e41c0bff6f92cf17cdfddead7d/native_assets.yaml: 
