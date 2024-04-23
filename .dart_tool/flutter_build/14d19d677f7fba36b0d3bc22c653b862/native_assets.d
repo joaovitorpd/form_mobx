@@ -1,0 +1,1 @@
+ /Users/joaovitorpiresdias/Projetos/form_mobx/.dart_tool/flutter_build/14d19d677f7fba36b0d3bc22c653b862/native_assets.yaml: 

@@ -29,4 +29,8 @@ abstract class ControllerBase with Store {
     }
     return null;
   }
+
+  dispose() {
+    //Here you can clean, discharge and/or stop whatever you need!
+  }
 }
