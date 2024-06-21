@@ -1,4 +1,4 @@
-import 'package:counter_mobx/body.dart';
+import 'package:counter_mobx/body_widget.dart';
 import 'package:counter_mobx/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
