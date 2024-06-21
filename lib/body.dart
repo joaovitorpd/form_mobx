@@ -29,8 +29,8 @@ class BodyWidget extends StatelessWidget {
           Observer(builder: (_) {
             return _textField(
               errorText: controller.validateName,
-              labelText: 'name',
-              onChanged: controller.client.changeName,
+              labelText: 'Nome',
+              onChanged: controller.customer.changeName,
             );
           }),
           const SizedBox(height: 20),
@@ -38,10 +38,18 @@ class BodyWidget extends StatelessWidget {
             return _textField(
               errorText: controller.validateEmail,
               labelText: 'email',
-              onChanged: controller.client.changeEmail,
+              onChanged: controller.customer.changeEmail,
             );
           }),
-          const SizedBox(height: 50),
+          const SizedBox(height: 20),
+          Observer(builder: (_) {
+            return _textField(
+              errorText: controller.validateCpf,
+              labelText: 'CPF',
+              onChanged: controller.customer.changeCpf,
+            );
+          }),
+          const SizedBox(height: 20),
           Observer(builder: (_) {
             return ElevatedButton(
               onPressed: controller.isValid ? () {} : null,
