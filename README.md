@@ -17,7 +17,7 @@ This is a Flutter application created to explore and learn more about state mana
 
 ## Purpose
 
-This project was developed by **João Vitor** as a learning exercise to deepen knowledge of state management in Flutter using MobX.
+This project was developed by me (**João Vitor**) as a learning exercise to deepen knowledge of state management in Flutter using MobX.
 
 ## Technologies Used
 
