@@ -1,5 +1,5 @@
 import 'package:counter_mobx/controller.dart';
-import 'package:counter_mobx/home.dart';
+import 'package:counter_mobx/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: const HomePage(),
     );
   }
 }

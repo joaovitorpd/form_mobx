@@ -7,7 +7,8 @@ import 'controller.dart';
 class BodyWidget extends StatelessWidget {
   const BodyWidget({super.key});
 
-  _textField({String? labelText, onChanged, String? Function()? errorText}) {
+  _textField(
+      {String? labelText, dynamic onChanged, String? Function()? errorText}) {
     return TextField(
       onChanged: onChanged,
       decoration: InputDecoration(
